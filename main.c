@@ -15,6 +15,7 @@ int main(void)
 
     while (1)
     {
+        ENCODER_CNT = 0;
         while (ENCODER_CNT <= 100)
             ;
         LED1 = ~LED1;
