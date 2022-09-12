@@ -6,12 +6,16 @@
 #define LED1 _LATE3
 #define LED2 _LATE2
 #define LED3 _LATE1
+#define BTN _RF3
 
 void setup(void);
 
 int main(void)
 {
     setup();
+
+    while (BTN)
+        ;
 
     while (1)
     {
@@ -52,6 +56,8 @@ void setup(void)
     _TRISE3 = 0; // LED1
     _TRISE2 = 0; // LED2
     _TRISE1 = 0; // LED3
+
+    _TRISF3 = 1; // ボタン
 
     return;
 }
