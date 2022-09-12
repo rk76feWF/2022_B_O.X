@@ -32,6 +32,7 @@ void setup(void)
     CLKDIV = 0x0000;
 
     setIO();
+    setUART();
 
     return;
 }
