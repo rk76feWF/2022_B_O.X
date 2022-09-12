@@ -4,6 +4,8 @@
 #include "function.h"
 #include <libpic30.h>
 
+int ENCODER_CNT = 0;
+
 int main(void)
 {
     setup();
@@ -13,6 +15,8 @@ int main(void)
 
     while (1)
     {
+        while (ENCODER_CNT <= 100)
+            ;
         LED1 = ~LED1;
         __delay_ms(1000);
         LED2 = ~LED2;
@@ -33,6 +37,7 @@ void setup(void)
 
     setIO();
     setUART();
+    setIC();
 
     return;
 }
