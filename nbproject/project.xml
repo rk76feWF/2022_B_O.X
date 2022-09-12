@@ -6,9 +6,9 @@
             <name>2022_B_O</name>
             <creation-uuid>b2e18d2e-f5f4-414d-8995-51160d2ba4d0</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
