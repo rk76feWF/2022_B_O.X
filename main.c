@@ -1,14 +1,8 @@
 #include <xc.h>
 #include "config.h"
-#define FCY 16000000UL
+#include "user.h"
+#include "function.h"
 #include <libpic30.h>
-
-#define LED1 _LATE3
-#define LED2 _LATE2
-#define LED3 _LATE1
-#define BTN _RF3
-
-void setup(void);
 
 int main(void)
 {
@@ -37,6 +31,13 @@ void setup(void)
     _NOSC = 0b001; // FRCPLL
     CLKDIV = 0x0000;
 
+    setIO();
+
+    return;
+}
+
+void setIO(void)
+{
     // Analog or Digital
     ANSB = 0x0000;
     ANSC = 0x0000;
