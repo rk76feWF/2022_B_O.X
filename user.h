@@ -17,4 +17,11 @@
 
 #define F_CYCLE (320 - 1)
 
+#define solenoid1 _LATB12
+#define solenoid2 _LATB13
+#define solenoid3 _LATB14
+#define solenoid4 _LATB15
+#define solenoid5 _LATB7
+#define solenoid6 _LATB6
+
 #endif /* USER_H */

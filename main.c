@@ -31,6 +31,30 @@ int main(void)
         __delay_ms(1000);
         LED3 = ~LED3;
         __delay_ms(1000);
+
+        solenoid1 = ~solenoid1;
+        __delay_ms(1000);
+        solenoid1 = ~solenoid1;
+
+        solenoid2 = ~solenoid2;
+        __delay_ms(1000);
+        solenoid2 = ~solenoid2;
+
+        solenoid3 = ~solenoid3;
+        __delay_ms(1000);
+        solenoid3 = ~solenoid3;
+
+        solenoid4 = ~solenoid4;
+        __delay_ms(1000);
+        solenoid4 = ~solenoid4;
+
+        solenoid5 = ~solenoid5;
+        __delay_ms(1000);
+        solenoid5 = ~solenoid5;
+
+        solenoid6 = ~solenoid6;
+        __delay_ms(1000);
+        solenoid6 = ~solenoid6;
     }
 
     return 0;
@@ -74,6 +98,14 @@ void setIO(void)
     _TRISE1 = 0; // LED3
 
     _TRISF3 = 1; // ボタン
+
+    // solenoid
+    _TRISB12 = 0;
+    _TRISB13 = 0;
+    _TRISB14 = 0;
+    _TRISB15 = 0;
+    _TRISB7 = 0;
+    _TRISB6 = 0;
 
     return;
 }
