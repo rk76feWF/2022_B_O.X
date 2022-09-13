@@ -10,6 +10,7 @@
 
 void setup(void);
 void setIO(void);
+void setPWM(void);
 
 void setUART(void);
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);

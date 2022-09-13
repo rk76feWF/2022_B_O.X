@@ -15,4 +15,6 @@
 #define LED3 _LATE1
 #define BTN _RF3
 
+#define F_CYCLE (320 - 1)
+
 #endif /* USER_H */

@@ -13,6 +13,13 @@ int main(void)
     while (BTN)
         ;
 
+    OC1R = 50;
+    OC2R = 100;
+    OC3R = 150;
+    OC4R = 200;
+    OC5R = 250;
+    OC6R = 300;
+
     while (1)
     {
         ENCODER_CNT = 0;
@@ -39,6 +46,7 @@ void setup(void)
     setIO();
     setUART();
     setIC();
+    setPWM();
 
     return;
 }
