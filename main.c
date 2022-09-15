@@ -13,48 +13,11 @@ int main(void)
     while (BTN)
         ;
 
-    OC1R = 50;
-    OC2R = 100;
-    OC3R = 150;
-    OC4R = 200;
-    OC5R = 250;
-    OC6R = 300;
-
     while (1)
     {
-        ENCODER_CNT = 0;
-        while (ENCODER_CNT <= 100)
-            ;
-        LED1 = ~LED1;
-        __delay_ms(1000);
-        LED2 = ~LED2;
-        __delay_ms(1000);
-        LED3 = ~LED3;
-        __delay_ms(1000);
-
-        solenoid1 = ~solenoid1;
-        __delay_ms(1000);
-        solenoid1 = ~solenoid1;
-
-        solenoid2 = ~solenoid2;
-        __delay_ms(1000);
-        solenoid2 = ~solenoid2;
-
-        solenoid3 = ~solenoid3;
-        __delay_ms(1000);
-        solenoid3 = ~solenoid3;
-
-        solenoid4 = ~solenoid4;
-        __delay_ms(1000);
-        solenoid4 = ~solenoid4;
-
-        solenoid5 = ~solenoid5;
-        __delay_ms(1000);
-        solenoid5 = ~solenoid5;
-
-        solenoid6 = ~solenoid6;
-        __delay_ms(1000);
-        solenoid6 = ~solenoid6;
+         moter(1, 100);
+         moter(2, -90);
+         moter(3, 50);
     }
 
     return 0;

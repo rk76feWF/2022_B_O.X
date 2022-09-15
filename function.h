@@ -20,4 +20,6 @@ void prints(char *text);
 void setIC(void);
 void __attribute__((interrupt, no_auto_psv)) _IC1Interrupt(void);
 
+ void moter(int num, double power);
+
 #endif /* FUNCTION_H */
