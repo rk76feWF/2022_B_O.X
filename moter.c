@@ -1,14 +1,8 @@
 #include <xc.h>
 #include "user.h"
 #include "function.h"
+#include <stdlib.h>
 #include <math.h>
-
-inline int abs(int pwm)
-{
-    if (pwm < 0)
-        return -pwm;
-    return pwm;
-}
 
 void moter(int num, double power)
 {
