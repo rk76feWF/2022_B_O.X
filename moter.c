@@ -3,6 +3,13 @@
 #include "function.h"
 #include <math.h>
 
+inline int abs(int pwm)
+{
+    if (pwm < 0)
+        return -pwm;
+    return pwm;
+}
+
 void moter(int num, double power)
 {
     int pwm = (int)(fabs(power) * F_CYCLE / 100.0);
