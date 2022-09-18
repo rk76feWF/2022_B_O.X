@@ -1,6 +1,7 @@
 #include <xc.h>
 #include "user.h"
 #include "function.h"
+#include <stdlib.h>
 #include <math.h>
 
 void moter(int num, double power)
