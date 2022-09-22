@@ -19,9 +19,18 @@
 
 #define solenoid1 _LATB12
 #define solenoid2 _LATB13
-#define solenoid3 _LATB14
-#define solenoid4 _LATB15
-#define solenoid5 _LATB7
-#define solenoid6 _LATB6
+#define hcsr04_a _LATF4
+#define hcsr04_b _RF5
+// #define solenoid5 _LATB7
+// #define solenoid6 _LATB6
+
+typedef unsigned char data_t;
+#define QUEUE_SIZE (64)
+typedef struct
+{
+    int head;
+    int num;
+    data_t data[QUEUE_SIZE];
+} queue_t;
 
 #endif /* USER_H */

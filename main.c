@@ -5,19 +5,29 @@
 #include <libpic30.h>
 
 int ENCODER_CNT = 0;
+extern queue_t testtest;
 
 int main(void)
 {
     setup();
+    data_t c = 0x00;
 
-    while (BTN)
-        ;
+    while (c != 'a')
+        dequeue(&testtest, &c);
+    c = 0;
 
     while (1)
     {
-         moter(1, 100);
-         moter(2, -90);
-         moter(3, 50);
+        hcsr04_a = 1;
+        __delay_us(10);
+        hcsr04_a = 0;
+
+        while (hcsr04_b != 1)
+            ;
+
+        LED2 = ~LED2;
+
+        __delay_ms(60);
     }
 
     return 0;
@@ -69,6 +79,10 @@ void setIO(void)
     _TRISB15 = 0;
     _TRISB7 = 0;
     _TRISB6 = 0;
+
+    // HC-SR04
+    _TRISF4 = 0; // Output
+    _TRISF5 = 1; // Input
 
     return;
 }
