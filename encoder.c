@@ -2,7 +2,7 @@
 #include "user.h"
 #include "function.h"
 
-extern int ENCODER_CNT;
+int ENCODER_CNT = 0;
 
 void setIC(void)
 {

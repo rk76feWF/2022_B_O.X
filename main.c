@@ -5,29 +5,25 @@
 #include <libpic30.h>
 #include <stdio.h>
 
-int ENCODER_CNT = 0;
-extern queue_t testtest;
-unsigned int HCSR04_CNT = 0;
-extern unsigned int first;
-extern unsigned int second;
+extern queue_t uart1;
+extern int ENCODER_CNT;
+extern unsigned int HCSR04_CNT;
 
 int main(void)
 {
     setup();
+
     data_t c = 0x00;
+    while (c != 'a')
+        dequeue(&uart1, &c);
+    c = 0;
 
-    // while (c != 'a')
-    //     dequeue(&testtest, &c);
-    // c = 0;
-
-    char buf[64];
+    // char buf[64];
     while (1)
     {
-
-        sprintf(buf, "%lf", (double)HCSR04_CNT * 0.068);
-        prints(buf);
-
-        // __delay_ms(60);
+        // なぜか以下のコードがあるとたまにフリーズするバグを抱えている
+        // sprintf(buf, "%lf", (double)HCSR04_CNT * 0.068);
+        // prints(buf);
     }
 
     return 0;
