@@ -3,31 +3,31 @@
 #include "user.h"
 #include "function.h"
 #include <libpic30.h>
+#include <stdio.h>
 
 int ENCODER_CNT = 0;
 extern queue_t testtest;
+unsigned int HCSR04_CNT = 0;
+extern unsigned int first;
+extern unsigned int second;
 
 int main(void)
 {
     setup();
     data_t c = 0x00;
 
-    while (c != 'a')
-        dequeue(&testtest, &c);
-    c = 0;
+    // while (c != 'a')
+    //     dequeue(&testtest, &c);
+    // c = 0;
 
+    char buf[64];
     while (1)
     {
-        hcsr04_a = 1;
-        __delay_us(10);
-        hcsr04_a = 0;
 
-        while (hcsr04_b != 1)
-            ;
+        sprintf(buf, "%lf", (double)HCSR04_CNT * 0.068);
+        prints(buf);
 
-        LED2 = ~LED2;
-
-        __delay_ms(60);
+        // __delay_ms(60);
     }
 
     return 0;
@@ -44,6 +44,7 @@ void setup(void)
     setUART();
     setIC();
     setPWM();
+    setHCSR04();
 
     return;
 }

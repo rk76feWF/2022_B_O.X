@@ -25,4 +25,8 @@ void moter(int num, double power);
 int enqueue(queue_t *que, data_t enq_data);
 int dequeue(queue_t *que, data_t *deq_data);
 
+void setHCSR04(void);
+void __attribute__((interrupt, no_auto_psv)) _IC2Interrupt(void);
+void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void);
+
 #endif /* FUNCTION_H */
