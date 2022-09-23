@@ -24,6 +24,7 @@ int main(void)
         // なぜか以下のコードがあるとたまにフリーズするバグを抱えている
         // sprintf(buf, "%lf", (double)HCSR04_CNT * 0.068);
         // prints(buf);
+        __delay_ms(1);
     }
 
     return 0;

@@ -1,7 +1,6 @@
 #include <xc.h>
 #include "user.h"
 #include "function.h"
-#include <libpic30.h>
 
 unsigned int HCSR04_CNT = 0;
 static unsigned int first = 0;
@@ -10,14 +9,18 @@ static unsigned int second = 0;
 void setHCSR04(void)
 {
     // Timer2
-    // 60msごとにタイマ割り込みで10usのパルスを生成。
     T2CON = 0x0000;
-    T2CONbits.TCKPS = 0b11;
-    PR2 = 3750;
-    _T2IP = 1;
-    _T2IF = 0;
-    _T2IE = 1;
+    T2CONbits.TCKPS = 0b10; // 1:64
+    PR2 = 15000;            // 60ms
     T2CONbits.TON = 1;
+
+    OC7CON1 = 0x0000;
+    OC7CON2 = 0x0000;
+    OC7CON1bits.OCM = 0b110;
+    OC7CON1bits.OCTSEL = 0;        // Timer2
+    OC7CON2bits.SYNCSEL = 0b01100; // Timer2
+    OC7R = 3;                      // 12us秒のパルスを生成
+    _RP10R = 24;
 
     // Timer3
     // HC-SR04のEchoピンの監視に使っているInput Capture 2用のクロック元
@@ -50,14 +53,4 @@ void __attribute__((interrupt, no_auto_psv)) _IC2Interrupt(void)
     LED2 = ~LED2;
 
     _IC2IF = 0;
-}
-
-void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void)
-{
-    // 10usのパルス生成
-    hcsr04_trig = 1;
-    __delay_us(10);
-    hcsr04_trig = 0;
-
-    _T2IF = 0;
 }
