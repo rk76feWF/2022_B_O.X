@@ -14,7 +14,6 @@ void setPWM(void);
 
 void setUART(void);
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);
-void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void);
 void prints(char *text);
 
 void setIC(void);
@@ -24,5 +23,8 @@ void moter(int num, double power);
 
 int enqueue(queue_t *que, data_t enq_data);
 int dequeue(queue_t *que, data_t *deq_data);
+
+void setHCSR04(void);
+void __attribute__((interrupt, no_auto_psv)) _IC2Interrupt(void);
 
 #endif /* FUNCTION_H */

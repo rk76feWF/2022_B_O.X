@@ -19,8 +19,8 @@
 
 #define solenoid1 _LATB12
 #define solenoid2 _LATB13
-#define hcsr04_a _LATF4
-#define hcsr04_b _RF5
+#define hcsr04_trig _LATF4
+#define hcsr04_echo _RF5
 // #define solenoid5 _LATB7
 // #define solenoid6 _LATB6
 
