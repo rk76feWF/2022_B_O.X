@@ -10,20 +10,23 @@
 
 void setup(void);
 void setIO(void);
-void setPWM(void);
 
-void setUART(void);
-void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);
-void prints(char *text);
-
-void setIC(void);
-void __attribute__((interrupt, no_auto_psv)) _IC1Interrupt(void);
-
+// Moter
+void setMoter(void);
 void moter(int num, double power);
 
+// UART (メインボードとの通信)
+void setUART(void);
+void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);
 int enqueue(queue_t *que, data_t enq_data);
 int dequeue(queue_t *que, data_t *deq_data);
+void prints(char *text);
 
+// Encoder
+void setEncoder(void);
+void __attribute__((interrupt, no_auto_psv)) _IC1Interrupt(void);
+
+// HC-SR04 (超音波センサ)
 void setHCSR04(void);
 void __attribute__((interrupt, no_auto_psv)) _IC2Interrupt(void);
 

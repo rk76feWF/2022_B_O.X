@@ -4,7 +4,7 @@
 
 int ENCODER_CNT = 0;
 
-void setIC(void)
+void setEncoder(void)
 {
     // Input Capture 1
     IC1CON1 = 0x0000;

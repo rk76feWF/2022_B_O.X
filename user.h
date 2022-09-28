@@ -10,20 +10,16 @@
 
 #define FCY 16000000UL
 
+// IO
 #define LED1 _LATE3
 #define LED2 _LATE2
 #define LED3 _LATE1
 #define BTN _RF3
 
+// Moter
 #define F_CYCLE (320 - 1)
 
-#define solenoid1 _LATB12
-#define solenoid2 _LATB13
-#define hcsr04_trig _LATF4
-#define hcsr04_echo _RF5
-// #define solenoid5 _LATB7
-// #define solenoid6 _LATB6
-
+// UART
 typedef unsigned char data_t;
 #define QUEUE_SIZE (64)
 typedef struct
@@ -32,5 +28,13 @@ typedef struct
     int num;
     data_t data[QUEUE_SIZE];
 } queue_t;
+
+// Solenoid
+#define solenoid1 _LATB12
+#define solenoid2 _LATB13
+
+// HC-SR04
+#define hcsr04_trig _LATF4
+#define hcsr04_echo _RF5
 
 #endif /* USER_H */
