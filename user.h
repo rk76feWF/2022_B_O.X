@@ -37,4 +37,8 @@ typedef struct
 #define hcsr04_trig _LATF4
 #define hcsr04_echo _RF5
 
+// limit switch
+#define sw1 _RB14
+#define sw2 _RB15
+
 #endif /* USER_H */

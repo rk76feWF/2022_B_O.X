@@ -54,5 +54,9 @@ void setIO(void)
     _TRISF4 = 0; // Output
     _TRISF5 = 1; // Input
 
+    // limit switch
+    _TRISB14 = 1; // Input
+    _TRISB15 = 1; // Input
+
     return;
 }

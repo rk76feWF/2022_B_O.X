@@ -4,6 +4,18 @@
 
 queue_t uart1;
 
+void __delay_UART(int d)
+{
+    data_t c = 0x00;
+    while (dequeue(&uart1, &c) == 0)
+        ;
+    c = 0x00;
+    while (c != d)
+        dequeue(&uart1, &c);
+
+    return;
+}
+
 void setUART(void)
 {
     // U1のピンの設定
